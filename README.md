@@ -1,13 +1,8 @@
-# gatsby-starter-typescript
-The [default Gatsby starter](https://github.com/gatsbyjs/gatsby-starter-default) converted to [TypeScript](https://www.typescriptlang.org/).
+# junukim.dev
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+안녕하세요! 소설 읽는 것을 좋아하는 김준우입니다. 🤗
+매번 읽을 때마다 기대되는 소설처럼, 모르는 사람들과 친해지기를 원하는 웹 개발자입니다.
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-starter-typescript https://github.com/haysclark/gatsby-starter-typescript
-```
+## gatsby
 
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/haysclark/gatsby-starter-typescript)
+gatsby로 처음 만드는 블로그 입니다.
