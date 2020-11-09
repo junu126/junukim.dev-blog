@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "typeRoots": ["./node_modules/@types", "./src/declarations"],
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "lib": ["dom", "es2015", "es2017"],
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*"]
+}
