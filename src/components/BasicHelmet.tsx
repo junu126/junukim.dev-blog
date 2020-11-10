@@ -1,7 +1,7 @@
 import React, { SFC } from "react";
 import Helmet from "react-helmet";
 
-import favicon from '../images/favicon.ico';
+import favicon from "../images/favicon.ico";
 
 interface Props {
   title: string;
@@ -12,7 +12,7 @@ interface Props {
 const PageHelmet: SFC<Props> = ({
   title,
   url,
-  description = "ahnheejong.name",
+  description = "junukim.dev",
 }) => (
   <Helmet title={title}>
     <link rel="icon" href={favicon} />
@@ -20,14 +20,12 @@ const PageHelmet: SFC<Props> = ({
 
     <meta name="description" content={description} />
 
+    <meta property="og:keywords" content="김준우, junukim, junukim.dev" />
+    <meta property="og:author" content="김준우" />
     <meta property="og:locale" content="ko_kR" />
     <meta property="og:site_name" content="junukim.dev" />
     <meta property="og:title" title={title} />
     <meta property="og:description" content={description} />
-    {/* <meta property="og:image" content="https://ahnheejong.name/assets/og.png" /> */}
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={url} />
   </Helmet>
 );
