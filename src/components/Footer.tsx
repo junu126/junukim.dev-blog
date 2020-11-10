@@ -1,18 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import useSiteMetaData from '../hooks/useSiteMetaData';
-
 const Footer: React.SFC = () => {
-  const a = useSiteMetaData();
-
-  console.log(a)
   return (
     <Wrapper>
       <a href="https://github.com/junu126" target="_blank">
         Github
-      </a>
-      •
+      </a>{" "}
+      •{" "}
       <a href="https://velog.io/@_junukim" target="_blank">
         velog
       </a>
@@ -20,7 +15,7 @@ const Footer: React.SFC = () => {
         RSS
       </a>
     </Wrapper>
-  )
+  );
 };
 
 export default Footer;
