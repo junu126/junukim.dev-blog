@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "junukim.dev",
+    author: "김준우",
     description: "안녕하세요! 소설 읽는 것을 좋아하는 김준우입니다.",
     siteUrl: "https://junukim.dev",
   },
@@ -8,6 +9,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -65,6 +67,14 @@ module.exports = {
             output: "/feed.xml",
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://junukim.dev",
+        sitemap: "https://junukim.dev/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     {
