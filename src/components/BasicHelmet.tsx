@@ -27,6 +27,10 @@ const PageHelmet: SFC<Props> = ({
     <meta property="og:title" title={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
+    <meta
+      name="naver-site-verification"
+      content="a89fa136149ff865b0c5dc3ede5d04c259a6945f"
+    />
   </Helmet>
 );
 
