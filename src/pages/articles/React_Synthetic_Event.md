@@ -1,12 +1,13 @@
 ---
 templateKey: blog-post
-title: "Synthetic Event"
+title: "React Synthetic Event"
 date: 2020-11-08T00:00:00+00:00
 description: "React의 Synthetic Event에 대해 이야기합니다."
 tags:
   - 학습
   - meta
 ---
+
 # Synthetic Event
 
 ## React에서 흔히 사용하는 onClick과 같은 이벤트는 무엇일까?
@@ -22,14 +23,16 @@ tags:
 Synthetic Event는 기본적으로 브라우저의 이벤트 객체로 이루어져 있지만, 추가로 **Event Polling이라는 현상이 발생하게 된다.** Event Polling은 또 무엇일까?
 
 > The SyntheticEvent is pooled. This means that the SyntheticEvent object will be reused and all properties will be nullified after the event callback has been invoked. This is for performance reasons. As such, you cannot access the event in an asynchronous way.
+
 - React docs
 
 위 글은 React 공식 문서에 적혀있는 내용이고, 아래는 이를 해석한 내용이다.
 
-> React의 SyntheticEvent는 풀링된다. 이는 **SyntheticEvent객체는 재사용되고, 이벤트 콜백이 호출된 후 모든 속성이 무효화됨을 의미한다.** 이것은 성능상의 문제 때문이다. 따라서 *비동기적으로 이벤트에 엑세스 할 수 없다.*
+> React의 SyntheticEvent는 풀링된다. 이는 **SyntheticEvent객체는 재사용되고, 이벤트 콜백이 호출된 후 모든 속성이 무효화됨을 의미한다.** 이것은 성능상의 문제 때문이다. 따라서 _비동기적으로 이벤트에 엑세스 할 수 없다._
+
 - React 독스
 
-Synthetic Evnet들은 성능상의 문제 때문에 재사용 한다. 그리고 **Event Polling은 이를 재사용 하기 때문에 발생하는 문제이다. *(**여기서 재사용 이라고 함은 React에서 component를 재사용하는 것과 같은 이치이다.)* Synthetic Event를 실행하면 **재사용을 하기위해 담겨있는 event객체를 null로 초기화 한다.**
+Synthetic Evnet들은 성능상의 문제 때문에 재사용 한다. 그리고 **Event Polling은 이를 재사용 하기 때문에 발생하는 문제이다. \*(**여기서 재사용 이라고 함은 React에서 component를 재사용하는 것과 같은 이치이다.)\* Synthetic Event를 실행하면 **재사용을 하기위해 담겨있는 event객체를 null로 초기화 한다.**
 
 Event Polling으로 인한 변화는 다음과 같다.
 
@@ -52,21 +55,24 @@ Event Polling으로 인한 변화는 다음과 같다.
 아래는 예시 코드이다.
 
 ```jsx
-import React, { useCallBack, useState } from 'react';
-import debounce from 'lodash.debounce';
+import React, { useCallBack, useState } from "react";
+import debounce from "lodash.debounce";
 
 const Example = () => {
-	const [name, setName] = useState("");
+  const [name, setName] = useState("");
 
-	const handleChange = (value) => setName(value);
+  const handleChange = (value) => setName(value);
 
-	const debounceHandler = debounce(useCallBack(({ target: { value } }) => {
-		handleChange(value);
-	},                                         []), 300);
+  const debounceHandler = debounce(
+    useCallBack(({ target: { value } }) => {
+      handleChange(value);
+    }, []),
+    300
+  );
 
-	return (
-		<input onChange={event => debounceHandler(event)} placeholder="이름..." />
-	);
+  return (
+    <input onChange={(event) => debounceHandler(event)} placeholder="이름..." />
+  );
 };
 ```
 
