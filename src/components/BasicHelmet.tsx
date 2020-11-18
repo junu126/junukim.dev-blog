@@ -7,20 +7,30 @@ interface Props {
   title: string;
   url: string;
   description?: string;
+  tags?: string[];
 }
 
 const PageHelmet: SFC<Props> = ({
   title,
   url,
   description = "junukim.dev",
+  tags = [],
 }) => (
   <Helmet title={title}>
     <link rel="icon" href={favicon} />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <meta name="description" content={description} />
+    <meta name="author" content="김준우" />
+    <meta
+      name="keywords"
+      content={`김준우,${title},junukim,${tags.join(",")}`}
+    />
 
-    <meta property="og:keywords" content="김준우, junukim, junukim.dev" />
+    <meta
+      property="og:keywords"
+      content={`김준우,${title},junukim,junukim.dev,${tags.join(",")}`}
+    />
     <meta property="og:author" content="김준우" />
     <meta property="og:locale" content="ko_kR" />
     <meta property="og:site_name" content="junukim.dev" />

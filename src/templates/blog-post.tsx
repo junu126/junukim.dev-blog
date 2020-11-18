@@ -28,7 +28,7 @@ export const BlogPostTemplate: React.SFC<Props> = ({
       <Title>{title}</Title>
       <Description>{description}</Description>
       <TagList>
-        {tags.map(tag => (
+        {tags.map((tag) => (
           <Tag key={tag + `tag`}>
             <Link to={`/tags/${tag}/`}>{`#${tag}`}</Link>
           </Tag>
@@ -87,17 +87,13 @@ const BlogPost: React.SFC<{
 }> = ({ data }) => {
   const { markdownRemark: post, previous, next } = data;
   const url = `https://junukim.dev${post.fields.slug}`;
-  const disqusConfig = {
-    url,
-    identifier: post.id,
-    title: post.frontmatter.title
-  };
 
   return (
     <Layout>
       <PageHelmet
         title={post.frontmatter.title}
         description={post.frontmatter.description}
+        tags={post.frontmatter.tags}
         url={url}
       />
       <BlogPostTemplate
@@ -208,13 +204,13 @@ const AdjacentArticle = styled(GatsbyLink)`
 `;
 
 const AdjacentArticleLabel = styled.div<{ isPrev: boolean }>`
-${({ isPrev }) => isPrev ? 'text-align: left' : 'text-align: right'};
+  ${({ isPrev }) => (isPrev ? "text-align: left" : "text-align: right")};
   font-size: 0.825em;
   margin-bottom: 8px;
 `;
 
 const AdjacentArticleTitle = styled.strong<{ isPrev: boolean }>`
-  ${({ isPrev }) => isPrev ? 'text-align: left' : 'text-align: right'};
+  ${({ isPrev }) => (isPrev ? "text-align: left" : "text-align: right")};
   color: #ffc078;
 `;
 
