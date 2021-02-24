@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: "Typescript_+_React_+_Rollup으로_풀세트_Component_Library만들기 😎"
+title: "Typescript + React + Rollup으로 풀세트 Component Library만들기 😎"
 date: 2021-02-25T00:00:00+00:00
 description: "최근에 회사에서 ui-library처럼 사용할 global-package를 만들며 setup한 내용들을 공유합니다."
 tags:
